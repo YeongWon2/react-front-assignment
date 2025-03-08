@@ -1,0 +1,65 @@
+.checkboxContainer {
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    margin: 6px 0;
+}
+
+.hiddenCheckbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.customCheckbox {
+    position: relative;
+    height: 22px;
+    width: 22px;
+    min-width: 22px;
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hiddenCheckbox:checked ~ .customCheckbox {
+    background-color: #3498db;
+    border-color: #3498db;
+}
+
+.checkIcon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+}
+
+.hiddenCheckbox:checked ~ .customCheckbox .checkIcon {
+    transform: translate(-50%, -50%);
+}
+
+.label {
+    font-size: 14px;
+    color: #333;
+    margin-left: 4px;
+    font-weight: 500;
+}
+
+.hiddenCheckbox:disabled ~ .customCheckbox {
+    background-color: #f2f2f2;
+    border-color: #ddd;
+    cursor: not-allowed;
+}
+
+.hiddenCheckbox:disabled ~ .label {
+    color: #999;
+    cursor: not-allowed;
+}
