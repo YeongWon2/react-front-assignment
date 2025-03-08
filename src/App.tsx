@@ -1,7 +1,7 @@
+import { AppRouter } from '@/app/layout/ui';
+
 function App() {
-    return (
-        <>테스트</>
-    )
+  return <AppRouter />;
 }
 
-export default App
+export default App;
