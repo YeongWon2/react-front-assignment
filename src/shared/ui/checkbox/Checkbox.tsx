@@ -17,21 +17,23 @@ interface CheckboxProps {
 
 function Checkbox({ children, checked, defaultChecked, onChange, id, name, className = '' }: CheckboxProps) {
   return (
-    <label className={`${styles.checkboxContainer} ${className}`}>
-      <input
-        type="checkbox"
-        className={styles.hiddenCheckbox}
-        checked={checked}
-        defaultChecked={defaultChecked}
-        onChange={onChange}
-        id={id}
-        name={name}
-      />
-      <div className={styles.customCheckbox}>
-        <CheckIcon />
-      </div>
-      {children}
-    </label>
+    <div className={className}>
+      <label className={styles.checkboxContainer}>
+        <input
+          type="checkbox"
+          className={styles.hiddenCheckbox}
+          checked={checked}
+          defaultChecked={defaultChecked}
+          onChange={onChange}
+          id={id}
+          name={name}
+        />
+        <div className={styles.customCheckbox}>
+          <CheckIcon />
+        </div>
+        {children}
+      </label>
+    </div>
   );
 }
 
