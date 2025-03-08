@@ -1,9 +1,10 @@
 import { Navigate } from 'react-router-dom';
 
-import { FormPage, HomePage } from '@/pages';
+import { CleaningFormPage, EnglishTutoringFormPage, HomePage } from '@/pages';
 
 export const routes = [
   { path: '/', element: <Navigate to="/form" replace /> },
   { path: '/form', element: <HomePage /> },
-  { path: '/form/:formId', element: <FormPage /> },
+  { path: '/form/1', element: <CleaningFormPage /> },
+  { path: '/form/2', element: <EnglishTutoringFormPage /> },
 ];
