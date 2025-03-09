@@ -1,54 +1,43 @@
-# React + TypeScript + Vite
+# 숨고 프론트엔드 과제
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 실행 방법
 
-Currently, two official plugins are available:
+### 1. 패키지 설치
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```sh
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### 2. 개발 서버 실행
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```sh
+npm run dev
 ```
+
+### 3. 빌드
+
+```sh
+npm run build
+```
+
+### 4. Lint 체크
+
+```sh
+npm run lint
+```
+
+## 📚 폴더 구조 Feature-Sliced Design
+
+✅ **명확한 책임 분리** → 특정 역할에 따라 레이어를 나누어 코드의 가독성을 높임  
+✅ **독립적인 기능 개발** → Feature 단위로 분리하여 팀 단위 개발 및 테스트 용이  
+✅ **유지보수성 향상** → 코드 변경이 다른 부분에 영향을 주지 않도록 설계  
+✅ **재사용성 증가** → 공통 모듈을 `shared/`에 정의하고 다양한 기능에서 활용
+
+## 🌍 FSD 공식 문서 및 참고 자료
+
+- 🔗 [Feature-Sliced Design 공식 사이트 (KR)](https://feature-sliced.design/kr/docs/get-started/overview)
+- 🔗 [Feature-Sliced Design 정리 블로그](https://emewjin.github.io/feature-sliced-design/)
+
+위 링크에서 **FSD의 개념과 구조에 대한 상세한 설명**을 확인할 수 있습니다.
+
+
