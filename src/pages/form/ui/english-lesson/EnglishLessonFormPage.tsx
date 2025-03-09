@@ -2,10 +2,10 @@ import { useCallback, useState } from 'react';
 
 import { MultiFormView } from '@/features/form';
 
-import { FormOutput, TOutPutDTO, useCleaningForm } from '@/entities/form';
+import { FormOutput, TOutPutDTO, useEnglishLessonForm } from '@/entities/form';
 
-function CleaningFormPage() {
-  const { data, isLoading } = useCleaningForm();
+function EnglishLessonFormPage() {
+  const { data, isLoading } = useEnglishLessonForm();
 
   const [submittedData, setSubmittedData] = useState<TOutPutDTO | null>(null);
 
@@ -32,4 +32,4 @@ function CleaningFormPage() {
   );
 }
 
-export default CleaningFormPage;
+export default EnglishLessonFormPage;
