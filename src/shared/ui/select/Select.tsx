@@ -35,20 +35,21 @@ function Select({
   );
 
   return (
-    <div className={className}>
-      <select value={value} onChange={handleChange} disabled={disabled} className={styles.selectContainer}>
-        {placeholder && !value && (
-          <option value="" disabled>
-            {placeholder}
-          </option>
-        )}
-        {options.map((option) => (
-          <option key={option.value} value={option.value} disabled={option.disabled}>
-            {option.label}
-          </option>
-        ))}
-      </select>
-    </div>
+    <select
+      value={value}
+      onChange={handleChange}
+      disabled={disabled}
+      className={`${styles.selectContainer} ${className}`}
+    >
+      <option value="" disabled={!value}>
+        {placeholder}
+      </option>
+      {options.map((option) => (
+        <option key={option.value} value={option.value} disabled={option.disabled}>
+          {option.label}
+        </option>
+      ))}
+    </select>
   );
 }
 

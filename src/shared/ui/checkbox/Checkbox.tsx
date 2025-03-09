@@ -6,34 +6,21 @@ import styles from './Checkbox.module.css';
 
 interface CheckboxProps {
   checked?: boolean;
-  defaultChecked?: boolean;
   onChange?: (event: ChangeEvent<HTMLInputElement>) => void;
   disabled?: boolean;
-  id?: string;
-  name?: string;
   className?: string;
   children?: ReactNode;
 }
 
-function Checkbox({ children, checked, defaultChecked, onChange, id, name, className = '' }: CheckboxProps) {
+function Checkbox({ children, checked = false, onChange, className = '' }: CheckboxProps) {
   return (
-    <div className={className}>
-      <label className={styles.checkboxContainer}>
-        <input
-          type="checkbox"
-          className={styles.hiddenCheckbox}
-          checked={checked}
-          defaultChecked={defaultChecked}
-          onChange={onChange}
-          id={id}
-          name={name}
-        />
-        <div className={styles.customCheckbox}>
-          <CheckIcon />
-        </div>
-        {children}
-      </label>
-    </div>
+    <label className={`${styles.checkboxContainer} ${className}`}>
+      <input type="checkbox" className={styles.hiddenCheckbox} checked={checked} onChange={onChange} />
+      <div className={styles.customCheckbox}>
+        <CheckIcon />
+      </div>
+      {children}
+    </label>
   );
 }
 

@@ -1,27 +1,112 @@
-import { FormProvider } from '@/app/provider/form';
+import { useCallback, useState } from 'react';
 
-import { MultiFormWrapper } from '@/features/form';
+import { MultiFormView } from '@/features/form';
 
-import { CheckBox, Select } from '@/shared/ui';
-
-import styles from './cleaning.module.css';
+import { FormOutput, TOutPutDTO } from '@/entities/form';
 
 function CleaningFormPage() {
-  return (
-    <FormProvider>
-      <MultiFormWrapper totalSteps={10}>
-        <div className={styles.formElements}>
-          <Select
-            options={[
-              { label: 'test', value: 1 },
-              { label: 'test2', value: 2 },
-            ]}
-          />
+  const [submittedData, setSubmittedData] = useState<TOutPutDTO | null>(null);
 
-          <CheckBox>sss</CheckBox>
-        </div>
-      </MultiFormWrapper>
-    </FormProvider>
+  const handleFormSubmit = useCallback((data: TOutPutDTO) => {
+    setSubmittedData(data);
+  }, []);
+
+  return (
+    <div>
+      {!submittedData ? (
+        <MultiFormView
+          formData={{
+            formId: 1,
+            title: '사무실 대청소 요청서 폼',
+            items: [
+              {
+                itemId: 1005,
+                title: '원하는 청소 스타일은 무엇인가요?',
+                formType: 'checkbox',
+                options: [
+                  {
+                    id: 4001,
+                    text: '스팀청소',
+                  },
+                  {
+                    id: 4002,
+                    text: '진공청소기로 청소',
+                  },
+                  {
+                    id: 4003,
+                    text: '쓰레기 비우기',
+                  },
+                ],
+              },
+              {
+                itemId: 1006,
+                title: '추가로 원하는 서비스를 선택해주세요.',
+                formType: 'checkbox',
+                options: [
+                  {
+                    id: 4004,
+                    text: '화장실 청소',
+                  },
+                  {
+                    id: 4005,
+                    text: '계단 청소',
+                  },
+                  {
+                    id: 4006,
+                    text: '바닥 코팅',
+                  },
+                ],
+              },
+              {
+                itemId: 1007,
+                title: '첫 번째 셀렉트박스 질문입니다.',
+                formType: 'select',
+                options: [
+                  {
+                    id: 5001,
+                    text: '첫 번째 답변입니다',
+                  },
+                  {
+                    id: 5002,
+                    text: '두 번째 답변입니다',
+                  },
+                  {
+                    id: 5003,
+                    text: '세 번째 답변입니다',
+                  },
+                ],
+              },
+              {
+                itemId: 1008,
+                title: '두 번째 셀렉트박스 질문입니다.',
+                formType: 'select',
+                options: [
+                  {
+                    id: 5007,
+                    text: '첫 번째 답변입니다',
+                  },
+                  {
+                    id: 5008,
+                    text: '두 번째 답변입니다',
+                  },
+                  {
+                    id: 5009,
+                    text: '세 번째 답변입니다',
+                  },
+                  {
+                    id: 5010,
+                    text: '네 번째 답변입니다',
+                  },
+                ],
+              },
+            ],
+          }}
+          onSubmit={handleFormSubmit}
+        />
+      ) : (
+        <FormOutput output={submittedData} />
+      )}
+    </div>
   );
 }
 

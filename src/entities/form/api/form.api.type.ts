@@ -1,8 +1,8 @@
-import { TCleaningDTO, TEnglishTutoringDTO, TOutPutDTO } from '@/entities/form';
+import { TFormDTO, TOutPutDTO } from '@/entities/form';
 
 export interface IFormResponse {
-  Cleaning: TCleaningDTO;
-  EnglishTutoring: TEnglishTutoringDTO;
+  Cleaning: TFormDTO;
+  EnglishTutoring: TFormDTO;
 }
 
 export interface IFormRequest {
