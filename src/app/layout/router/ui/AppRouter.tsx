@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-import { routes } from '@/app/layout/model';
+import { NotFoundPage } from '@/pages';
 
-import { NotFoundPage } from '@/pages/ui';
+import { routes } from '@/app/layout/router';
 
 function AppRouter() {
   return (

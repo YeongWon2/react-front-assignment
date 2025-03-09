@@ -5,6 +5,7 @@
     cursor: pointer;
     user-select: none;
     margin: 6px 0;
+    width: auto;
 }
 
 .hiddenCheckbox {

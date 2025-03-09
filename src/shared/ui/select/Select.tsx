@@ -41,11 +41,9 @@ function Select({
       disabled={disabled}
       className={`${styles.selectContainer} ${className}`}
     >
-      {placeholder && !value && (
-        <option value="" disabled>
-          {placeholder}
-        </option>
-      )}
+      <option value="" disabled={!value}>
+        {placeholder}
+      </option>
       {options.map((option) => (
         <option key={option.value} value={option.value} disabled={option.disabled}>
           {option.label}

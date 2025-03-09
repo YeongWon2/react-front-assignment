@@ -1,4 +1,4 @@
-import { AppRouter } from '@/app/layout/ui';
+import { AppRouter } from '@/app/layout/router';
 
 function App() {
   return <AppRouter />;
